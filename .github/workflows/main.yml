@@ -19,7 +19,7 @@ jobs:
     - name: Run tests
       run: cargo test --verbose
     - name: Run program
-      run: cargo run
+      run: cargo run -- "Harlley Davidson"
       env:
         RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
 
