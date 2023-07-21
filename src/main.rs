@@ -14,7 +14,7 @@ struct Summoner {
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
-    let api_key = "RGAPI-43081cef-fa19-400b-af8a-48dc7f2b1a58";
+    let api_key = std::env::var("RIOT_API_KEY").expect("RIOT_API_KEY is not set");
     let summoner_name = "Harlley Davidson";
 
     let summoner_url = format!(
