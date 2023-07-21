@@ -27,9 +27,19 @@ git clone https://github.com/harlleybastos/league-of-legends-rust-tracker.git
 cd league-of-legends-rust-tracker
 ```
 3. Add your API Key generated from Riot:
+
+Linux or MacOS
+
 ```bash
 export RIOT_API_KEY=your-api-key
 ```
+
+Windows
+
+```bash
+set RIOT_API_KEY=your-api-key
+```
+
 4. Run the program with the name of the summoner:
 ```bash
 cargo run -- "SummonerName"
