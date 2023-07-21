@@ -3,13 +3,20 @@ use serde_derive::Deserialize;
 
 #[derive(Deserialize, Debug)]
 struct Summoner {
+    #[serde(rename = "id")]
     id: String,
-    accountId: String,
+    #[serde(rename = "accountId")]
+    account_id: String,
+    #[serde(rename = "puuid")]
     puuid: String,
+    #[serde(rename = "name")]
     name: String,
-    profileIconId: i32,
-    revisionDate: i64,
-    summonerLevel: i32,
+    #[serde(rename = "profileIconId")]
+    profile_icon_id: i32,
+    #[serde(rename = "revisionDate")]
+    revision_date: i64,
+    #[serde(rename = "summonerLevel")]
+    summoner_level: i32,
 }
 
 #[tokio::main]
