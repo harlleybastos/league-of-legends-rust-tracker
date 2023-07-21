@@ -1,5 +1,5 @@
-use reqwest::Error;
 use serde_derive::Deserialize;
+use reqwest::Error;
 
 #[derive(Deserialize, Debug)]
 struct Summoner {
@@ -36,3 +36,4 @@ async fn main() -> Result<(), Error> {
 
     Ok(())
 }
+
