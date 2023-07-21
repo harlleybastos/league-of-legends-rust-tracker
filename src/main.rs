@@ -1,5 +1,6 @@
 use serde_derive::Deserialize;
 use reqwest::Error;
+use std::env;
 
 #[derive(Deserialize, Debug)]
 struct Summoner {
@@ -17,13 +18,13 @@ struct Summoner {
 async fn main() -> Result<(), Error> {
     let api_key = std::env::var("RIOT_API_KEY").expect("RIOT_API_KEY is not set");
     
-    println!("Enter a summoner name: ");
+    let args: Vec<String> = env::args().collect();
+    if args.len() < 2 {
+        eprintln!("Please provide a summoner name as the first argument!");
+        std::process::exit(1);
+    }
 
-    let mut summoner_name = String::new();
-    std::io::stdin().read_line(&mut summoner_name)
-        .expect("Failed to read line");
-
-    summoner_name = summoner_name.trim().to_string();
+    let summoner_name = &args[1];
 
     let summoner_url = format!(
         "https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/{}?api_key={}",
